@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-digest.github.io/"
+title = "go-ruby-digest"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Digest suite"
+  status = "ready"
+  blurb = "MD5, SHA1, the SHA2 family (SHA256/384/512) and RIPEMD-160, each producing the same `hexdigest` / `digest` / `base64digest` output as reference Ruby."
+[[params.phases]]
+  name = "Digest::Instance protocol"
+  status = "ready"
+  blurb = "The streaming `update` / `<<` / `reset` / `finish` interface and the one-shot `Digest::MD5.hexdigest(s)` class methods, mirroring MRI's protocol."
+[[params.phases]]
+  name = "BubbleBabble"
+  status = "ready"
+  blurb = "`Digest.bubblebabble` / `hexencode` producing the human-readable BubbleBabble encoding byte-for-byte as Ruby's `digest/bubblebabble` does."
+[[params.phases]]
+  name = "Hex & base64 forms"
+  status = "ready"
+  blurb = "`hexdigest`, `base64digest` and raw `digest`, with MRI's exact byte and character output for each."
+[[params.phases]]
+  name = "Streaming equivalence"
+  status = "ready"
+  blurb = "Feeding input incrementally via `update` yields the same digest as a single one-shot call, the property reference Ruby guarantees."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "A wide input corpus hashed both here and by the system `ruby`/`digest`, compared byte-for-byte; 100% coverage, gofmt + go vet clean, green across all six 64-bit Go arches and three OSes."
